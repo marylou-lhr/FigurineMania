@@ -5,8 +5,9 @@
     <title>FigurineMania</title>
     <link rel="stylesheet" href = "node_modules/bootstrap/dist/css/bootstrap.css">
 </head>
-<body>
+<body class="d-flex flex-column h-100">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="Images/logo.png" width="100" height="100" class="d-inline-block align-text-top">
@@ -26,26 +27,32 @@
                 <a class="nav-link active" href="figurines.html">Figurines</a>
               </li>
             </ul>
-            <a class="navbar-brand ms-auto" href="panier.html">
-              <img src="Images/panier.png" width="50" height="50" class="d-inline-block align-text-top">
-            </a>
           </div>
+          <a class="navbar-brand ms-auto" href="panier.html">
+            <img src="Images/panier.png" width="50" height="50" class="d-inline-block align-text-top">
+          </a>
         </div>
       </nav>
       <main>
         <br>
-        <h1>Accueil</h1>
+        <div class="container">
+          <h1>Accueil</h1>
+          <br>
+          <h3>Description</h3>
+          <br>
+          <div>
+            <p class="row">FigurineMania est un site web de figurines de personnages d'animes comme Jujutsu Kaisen ou des personnages autres comme Hatsune Miku.</p>
+            <div class="col-md-4">
+              <img src="Images/image3.png" width="100" height="100">
+            </div>
+          </div>
+          <br>
+          <br>
+          <button class="rounded" type="button" onclick="window.location.href = 'figurines.html'">Voir les figurines</button>
+        </div>
         <br>
-        <h2>Description</h2>
-        <br>
-        <p>FigurineMania est un site web de figurines de personnages d'animes comme Jujutsu Kaisen ou des personnages autres comme Hatsune Miku.</p>
-        <img src="Images/image1.png" width="100" height="100">
-        <img src="Images/image3.png" width="100" height="100">
-        <br>
-        <br>
-        <button type="button" onclick="window.location.href = 'figurines.html'">Voir les figurines</button>
       </main>
-      <footer class="bg-body-tertiary text-center text-lg-start">
+      <footer class="footer mt-auto py-3 bg-light">
         <div class="text-center p-1">
           Fait par Marylou Lohier
         </div>
