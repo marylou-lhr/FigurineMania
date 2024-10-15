@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FigurineMania</title>
     <link rel="stylesheet" href = "node_modules/bootstrap/dist/css/bootstrap.css">
-
 </head>
-<body>
+<body class="d-flex flex-column h-100">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="Images/logo.png" width="100" height="100" class="d-inline-block align-text-top">
@@ -27,19 +27,39 @@
                 <a class="nav-link active" href="figurines.html">Figurines</a>
               </li>
             </ul>
-            <a class="navbar-brand ms-auto" href="panier.html">
-              <img src="Images/panier.png" width="50" height="50" class="d-inline-block align-text-top">
-            </a>
           </div>
+          <a class="navbar-brand ms-auto" href="panier.html">
+            <img src="Images/panier.png" width="50" height="50" class="d-inline-block align-text-top">
+          </a>
         </div>
       </nav>
       <main>
-
+        <div class="container">
+          <br>
+          <h1>Panier</h1>
+          <br>
+          <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="Images/image1.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Nom de la figurine</h5>
+                  <p class="card-text">Nom du personnage <br> Nom de l'univers</p>
+                  <p class="card-text"><small class="text-body-secondary">Date</small></p>
+                  <a href="#" class="btn btn-danger btn-sm">Retirer du panier</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="paiement.html" class="btn btn-danger btn-lg">Payer</a>
+        </div>
       </main>
-      <footer class="bg-body-tertiary text-center text-lg-start">
+      <footer class="footer mt-auto py-3 bg-light">
         <div class="text-center p-1">
           Fait par Marylou Lohier
         </div>
-      </footer>    
+      </footer>
 </body>
 </html>
