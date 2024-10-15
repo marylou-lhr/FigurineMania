@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FigurineMania</title>
     <link rel="stylesheet" href = "node_modules/bootstrap/dist/css/bootstrap.css">
-
 </head>
-<body>
+<body class="d-flex flex-column h-100">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="Images/logo.png" width="100" height="100" class="d-inline-block align-text-top">
@@ -27,19 +27,64 @@
                 <a class="nav-link active" href="figurines.html">Figurines</a>
               </li>
             </ul>
-            <a class="navbar-brand ms-auto" href="panier.html">
-              <img src="Images/panier.png" width="50" height="50" class="d-inline-block align-text-top">
-            </a>
           </div>
+          <a class="navbar-brand ms-auto" href="panier.html">
+            <img src="Images/panier.png" width="50" height="50" class="d-inline-block align-text-top">
+          </a>
         </div>
       </nav>
       <main>
-
+        <div class="container">
+          <br>
+          <h1>Paiement</h1>
+          <br>
+          <form class="row g-3">
+            <div class="col-md-6">
+              <label for="inputNom2" class="form-label">Nom</label>
+              <input type="text" class="form-control" id="inputNom2">
+            </div>
+            <div class="col-md-6">
+              <label for="inputPrenom2" class="form-label">Prénom</label>
+              <input type="text" class="form-control" id="inputPrenom2">
+            </div>
+            <div class="col-12">
+              <label for="inputEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="inputEmail">
+            </div>
+            <div class="col-6">
+              <label for="inputCard" class="form-label">Numéro de carte</label>
+              <input type="text" class="form-control" id="inputCard">
+            </div>
+            <div class="col-6">
+              <label for="inputSecretCode" class="form-label">Code secret</label>
+              <input type="text" class="form-control" id="inputSecretCode">
+            </div>
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">Adresse de paiement</label>
+              <input type="text" class="form-control" id="inputAddress">
+            </div>
+            <div class="col-12">
+              <label for="inputAddress2" class="form-label">Adresse de livraison</label>
+              <input type="text" class="form-control" id="inputAddress2">
+            </div>
+            <div class="col-md-6">
+              <label for="inputCity" class="form-label">Ville</label>
+              <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="col-md-6">
+              <label for="inputZip" class="form-label">Code postal</label>
+              <input type="text" class="form-control" id="inputZip">
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-danger">Confirmer</button>
+            </div>
+          </form>
+        </div>
       </main>
-      <footer class="bg-body-tertiary text-center text-lg-start">
+      <footer class="footer mt-auto py-3 bg-light">
         <div class="text-center p-1">
           Fait par Marylou Lohier
         </div>
-      </footer>    
+      </footer>
 </body>
 </html>
