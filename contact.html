@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FigurineMania</title>
     <link rel="stylesheet" href = "node_modules/bootstrap/dist/css/bootstrap.css">
-
 </head>
-<body>
+<body class="d-flex flex-column h-100">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="Images/logo.png" width="100" height="100" class="d-inline-block align-text-top">
@@ -27,19 +27,50 @@
                 <a class="nav-link active" href="figurines.html">Figurines</a>
               </li>
             </ul>
-            <a class="navbar-brand ms-auto" href="panier.html">
-              <img src="Images/panier.png" width="50" height="50" class="d-inline-block align-text-top">
-            </a>
           </div>
+          <a class="navbar-brand ms-auto" href="panier.html">
+            <img src="Images/panier.png" width="50" height="50" class="d-inline-block align-text-top">
+          </a>
         </div>
       </nav>
       <main>
-
+        <br>
+        <div class="container">
+          <h1>Contact</h1>
+          <br>
+        <form>
+          <div class="row mb-4">
+            <label for="inputNom" class="col-sm-2 col-form-label">Nom</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputNom">
+            </div>
+          </div>
+          <div class="row mb-4">
+            <label for="inputPrenom" class="col-sm-2 col-form-label">Prénom</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputPrenom">
+            </div>
+          </div>
+            <div class="row mb-4">
+              <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail">
+              </div>
+            </div>
+            <div class="row mb-4">
+              <label for="inputMessage" class="col-sm-2 col-form-label">Message</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputMessage">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-danger">Confirmer</button>
+          </form>
+        </div>
       </main>
-      <footer class="bg-body-tertiary text-center text-lg-start">
+      <footer class="footer mt-auto py-3 bg-light">
         <div class="text-center p-1">
           Fait par Marylou Lohier
         </div>
-      </footer>    
+      </footer>
 </body>
 </html>
