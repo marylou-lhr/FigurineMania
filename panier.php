@@ -1,6 +1,5 @@
 <?php
-session_start();
-$_SESSION['panier'] = array();
+    session_start();
 ?>
 
 <html lang="fr">
@@ -67,6 +66,8 @@ $_SESSION['panier'] = array();
               </div>
             </div>
           </div>
+          <p> Nombre d'articles : <?php $nb_articles = count($_SESSION['panier']['id_article']); ?></p>
+          <p> Total du panier : <?php $nb_articles = sum($_SESSION['panier']['prix']); ?></p>
           <a href="paiement.html" class="btn btn-danger btn-lg">Payer</a>
         </div>
       </main>
