@@ -23,13 +23,13 @@ function creerPanier(){
         array_push($_SESSION['panier']['prix'],$select['prix']);
     }
 
-    function supprFigure($idFigure){
+    function supprFigure($nomFigure){
         $supprOk = false;
         $tmp = array('id'=>array(),'nom'=>array(),'nomPerso'=>array(),'license'=>array(),'urlImage'=>array(),'prix'=>array());
         $nb_figures = count($_SESSION['panier']['id_article']);
         for ($i=0; $i < $nb_figures; $i++) { 
             /* On transfère tout sauf l'article à supprimer */
-            if($_SESSION['panier']['id'][$i] != $idFigure)
+            if($_SESSION['panier']['id'][$i] != $nomFigure)
             {
                 array_push($panier_tmp['id'],$_SESSION['panier']['id'][$i]);
                 array_push($panier_tmp['nom'],$_SESSION['panier']['nom'][$i]);
