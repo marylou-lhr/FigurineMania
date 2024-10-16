@@ -24,7 +24,7 @@
                 <a class="nav-link active" href="contact.html">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="figurines.html">Figurines</a>
+                <a class="nav-link active" href="figurines.php">Figurines</a>
               </li>
             </ul>
           </div>
@@ -38,38 +38,48 @@
         <div class="container">
           <h1>Contact</h1>
           <br>
-        <form>
+        <form method="POST">
           <div class="row mb-4">
             <label for="inputNom" class="col-sm-2 col-form-label">Nom</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputNom">
+              <input type="text" class="form-control" name="inputNom">
             </div>
           </div>
           <div class="row mb-4">
             <label for="inputPrenom" class="col-sm-2 col-form-label">Prénom</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputPrenom">
+              <input type="text" class="form-control" name="inputPrenom">
             </div>
           </div>
             <div class="row mb-4">
               <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputEmail">
+                <input type="email" class="form-control" name="inputEmail">
               </div>
             </div>
             <div class="row mb-4">
               <label for="inputMessage" class="col-sm-2 col-form-label">Message</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputMessage">
+                <input type="text" class="form-control" name="inputMessage">
               </div>
             </div>
-            <button type="submit" class="btn btn-danger">Confirmer</button>
+            <button type="submit" name="btn-confirm" class="btn btn-danger">Confirmer</button>
           </form>
+          <?php
+            if (isset($_POST["btn-confirm"])){
+                //Récup des informations
+                $nom = $_POST['inputNom'];
+                $prenom = $_POST['inputPrenom'];
+                $email = $_POST['inputEmail'];
+                $message = $_POST['inputMessage'];
+                echo "Message envoyé !";
+            }
+        ?>
         </div>
       </main>
       <footer class="footer mt-auto py-3 bg-light">
         <div class="text-center p-1">
-          Fait par Marylou Lohier
+            Fait par Marylou Lohier
         </div>
       </footer>
 </body>

@@ -47,19 +47,17 @@
           <br>
           <h1>Figurines</h1>
           <br>
-          <div class="card-group">
           <?php
             foreach ($figurines as $figurine) {
-                ?>
-            <div class="card">
-              <img src="<?= $figurine['urlImage'] ?>" class="card-img-top img-thumbnail" alt="Photo de la figurine">
-              <div class="card-body">
-                <h5 class="card-title"><?= $figurine['nom'] ?></h5>
-                <p class="card-text"><?= $figurine['nomPerso'] ?> <br> <?= $figurine['license'] ?></p>
-                <a href="#" class="btn btn-danger btn-sm">Mettre dans le panier</a>
-              </div>
-            <?php } ?>
+          ?>
+          <div class="card">
+            <img src="Images/<?= $figurine['urlImage'] ?>" class="card-img-top" alt="Photo de la figurine">
+            <div class="card-body">
+              <h5 class="card-title"><?= $figurine['nom'] ?></h5>
+              <p class="card-text"><?= $figurine['nomPerso'] ?> <br> <?= $figurine['license'] ?></p>
+              <a href="#" class="btn btn-danger btn-sm">Mettre dans le panier</a>
             </div>
+            <?php } ?>
           </div>
         </div>
       </main>
