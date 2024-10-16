@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -55,6 +59,7 @@
             <div class="card-body">
               <h5 class="card-title"><?= $figurine['nom'] ?></h5>
               <p class="card-text"><?= $figurine['nomPerso'] ?> <br> <?= $figurine['license'] ?></p>
+              <p class="card-text"><small class="text-body-secondary"><?= $figurine['prix'] ?></small></p>
               <a href="#" class="btn btn-danger btn-sm">Mettre dans le panier</a>
             </div>
             <?php } ?>

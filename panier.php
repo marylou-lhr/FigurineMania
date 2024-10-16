@@ -1,3 +1,8 @@
+<?php
+session_start();
+$_SESSION['panier'] = array();
+?>
+
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -34,23 +39,36 @@
         </div>
       </nav>
       <main>
-        <br>
+        <?php
+            //Connexion à la base de données en pdo
+            $pdo = new PDO('mysql:host=lakartxela.iutbayonne.univ-pau.fr;dbname=mlohier001_bd', 'mlohier001_bd', 'mlohier001_bd');
+
+            $sql = "SELECT * FROM Figurine";
+            $pdoStatement = $pdo->prepare($sql);
+            $pdoStatement->execute();
+            $figurines = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+        ?>
         <div class="container">
-          <h1>Accueil</h1>
           <br>
-          <h3>Description</h3>
+          <h1>Panier</h1>
           <br>
-          <div>
-            <p class="row">FigurineMania est un site web de figurines de personnages d'animes comme Jujutsu Kaisen ou des personnages autres comme Hatsune Miku.</p>
-            <div class="col-md-4">
-              <img src="Images/image3.png" width="100" height="100">
+          <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="Images/image1.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Nom de la figurine</h5>
+                  <p class="card-text">Nom du personnage <br> Nom de l'univers</p>
+                  <p class="card-text"><small class="text-body-secondary">Prix</small></p>
+                  <a href="#" class="btn btn-danger btn-sm">Retirer du panier</a>
+                </div>
+              </div>
             </div>
           </div>
-          <br>
-          <br>
-          <button class="rounded" type="button" onclick="window.location.href = 'figurines.php'">Voir les figurines</button>
+          <a href="paiement.html" class="btn btn-danger btn-lg">Payer</a>
         </div>
-        <br>
       </main>
       <footer class="footer mt-auto py-3 bg-light">
         <div class="text-center p-1">
