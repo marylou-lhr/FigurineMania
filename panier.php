@@ -1,5 +1,9 @@
 <?php
     session_start();
+
+    if(isset($_GET['del'])){
+      unset($_SESSION['panier'][$_GET['del']]);
+    }
 ?>
 
 <html lang="fr">
@@ -32,43 +36,61 @@
               </li>
             </ul>
           </div>
-          <a class="navbar-brand ms-auto" href="panier.html">
+          <a class="navbar-brand ms-auto" href="panier.php">
             <img src="Images/panier.png" width="50" height="50" class="d-inline-block align-text-top">
           </a>
         </div>
       </nav>
       <main>
-        <?php
-            //Connexion à la base de données en pdo
-            $pdo = new PDO('mysql:host=lakartxela.iutbayonne.univ-pau.fr;dbname=mlohier001_bd', 'mlohier001_bd', 'mlohier001_bd');
-
-            $sql = "SELECT * FROM Figurine";
-            $pdoStatement = $pdo->prepare($sql);
-            $pdoStatement->execute();
-            $figurines = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
-        ?>
         <div class="container">
           <br>
           <h1>Panier</h1>
           <br>
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
-              <div class="col-md-4">
-                <img src="Images/image1.png" class="img-fluid rounded-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Nom de la figurine</h5>
-                  <p class="card-text">Nom du personnage <br> Nom de l'univers</p>
-                  <p class="card-text"><small class="text-body-secondary">Prix</small></p>
-                  <a href="#" class="btn btn-danger btn-sm">Retirer du panier</a>
-                </div>
+              <?php
+                //Connexion à la base de données en pdo
+                $pdo = new PDO('mysql:host=lakartxela.iutbayonne.univ-pau.fr;dbname=mlohier001_bd', 'mlohier001_bd', 'mlohier001_bd');
+                $ids = array_filter(array_keys($_SESSION['panier']), 'is_numeric');
+                if (empty($ids)){
+                  print("Votre panier est vide");
+                }
+                else{
+                  $ListeIds = "(" . implode(',', $ids) . ")";
+                  $prixTotal = 0;
+
+                  $sql = "SELECT * FROM Figurine WHERE id IN $ListeIds";
+                  $pdoStatement = $pdo->prepare($sql);
+                  $pdoStatement->execute();
+                  $figurines = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+                  
+                  echo '<div class="row">';
+
+                  foreach($figurines as $figurine):
+                    $prixTotal += $figurine['prix'] * $_SESSION['panier'][$figurine['id']];
+                    ?>
+                    <div class="row mb-3">
+                      <div class="col-md-4">
+                        <img src="Images/<?=$figurine['urlImage']?>" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title"><?=$figurine['nom']?></h5>
+                          <p class="card-text"><?=$figurine['nomPerso']?> <br> <?=$figurine['license']?></p>
+                          <p class="card-text"><small class="text-body-secondary"><?=$figurine['prix']?> €</small></p>
+                          <p class="card-text"><small class="text-body-secondary">Quantité : <?=$_SESSION['panier'][$figurine['id']]?></p>
+                          <a href="panier.php?del=<?=$figurine['id']?>" class="btn btn-danger btn-sm">Retirer du panier</a>
+                        </div>
+                      </div>
+                    </div>
               </div>
             </div>
+          <br>
+          <?php endforeach; } ?>
           </div>
-          <p> Nombre d'articles : <?php $nb_articles = count($_SESSION['panier']['id_article']); ?></p>
-          <p> Total du panier : <?php $nb_articles = sum($_SESSION['panier']['prix']); ?></p>
-          <a href="paiement.html" class="btn btn-danger btn-lg">Payer</a>
+          <h5> Total du panier : <?=$prixTotal ?> €</h5>
+          <br>
+          <a href="paiement.php" class="btn btn-danger btn-lg">Payer</a>
         </div>
       </main>
       <footer class="footer mt-auto py-3 bg-light">

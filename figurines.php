@@ -28,11 +28,11 @@
                 <a class="nav-link active" href="contact.html">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="figurines.html">Figurines</a>
+                <a class="nav-link active" href="figurines.php">Figurines</a>
               </li>
             </ul>
           </div>
-          <a class="navbar-brand ms-auto" href="panier.html">
+          <a class="navbar-brand ms-auto" href="panier.php">
             <img src="Images/panier.png" width="50" height="50" class="d-inline-block align-text-top">
           </a>
         </div>
@@ -59,8 +59,8 @@
             <div class="card-body">
               <h5 class="card-title"><?= $figurine['nom'] ?></h5>
               <p class="card-text"><?= $figurine['nomPerso'] ?> <br> <?= $figurine['license'] ?></p>
-              <p class="card-text"><small class="text-body-secondary"><?= $figurine['prix'] ?></small></p>
-              <a href="#" class="btn btn-danger btn-sm">Mettre dans le panier</a>
+              <p class="card-text"><small class="text-body-secondary"><?= $figurine['prix'] ?> €</small></p>
+              <a href="ajoutDansPanier.php?id=<?=$figurine['id']?>" class="btn btn-danger btn-sm">Mettre dans le panier</a>
             </div>
             <?php } ?>
           </div>

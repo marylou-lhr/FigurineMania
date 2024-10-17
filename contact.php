@@ -24,14 +24,14 @@
                 <a class="nav-link active" aria-current="page" href="index.html">Accueil</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="contact.html">Contact</a>
+                <a class="nav-link active" href="contact.php">Contact</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" href="figurines.php">Figurines</a>
               </li>
             </ul>
           </div>
-          <a class="navbar-brand ms-auto" href="panier.html">
+          <a class="navbar-brand ms-auto" href="panier.php">
             <img src="Images/panier.png" width="50" height="50" class="d-inline-block align-text-top">
           </a>
         </div>

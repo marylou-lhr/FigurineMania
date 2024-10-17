@@ -32,7 +32,7 @@
               </li>
             </ul>
           </div>
-          <a class="navbar-brand ms-auto" href="panier.html">
+          <a class="navbar-brand ms-auto" href="panier.php">
             <img src="Images/panier.png" width="50" height="50" class="d-inline-block align-text-top">
           </a>
         </div>
