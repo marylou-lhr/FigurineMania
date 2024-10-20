@@ -1,5 +1,8 @@
 <?php
   session_start();
+  if (!isset($_SESSION['login']) && !isset($_SESSION['mdp'])) {
+    header ('location: login.php');
+  };
 ?>
 
 <html lang="fr">
@@ -25,7 +28,7 @@
                 <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="contact.html">Contact</a>
+                <a class="nav-link active" href="contact.php">Contact</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" href="figurines.php">Figurines</a>
@@ -66,8 +69,9 @@
           </div>
         </div>
       </main>
-      <footer class="footer mt-auto py-3 bg-light">
-        <div class="text-center p-1">
+      <footer class="footer mt-auto py-3 bg-light text-center">
+        <button class="rounded btn btn-danger" type="button" onclick="window.location.href = 'logout.php'">Se déconnecter</button>
+        <div class="p-1">
           Fait par Marylou Lohier
         </div>
       </footer>

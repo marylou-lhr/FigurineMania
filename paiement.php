@@ -1,5 +1,8 @@
 <?php
   session_start();
+  if(isset($_GET['del'])){
+    unset($_SESSION['panier'][$_GET['del']]);
+  }
 ?>
 
 <html lang="fr">
@@ -112,8 +115,9 @@
           </form>
         </div>
       </main>
-      <footer class="footer mt-auto py-3 bg-light">
-        <div class="text-center p-1">
+      <footer class="footer mt-auto py-3 bg-light text-center">
+        <button class="rounded btn btn-danger" type="button" onclick="window.location.href = 'logout.php'">Se déconnecter</button>
+        <div class="p-1">
           Fait par Marylou Lohier
         </div>
       </footer>

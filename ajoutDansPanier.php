@@ -1,10 +1,10 @@
 <?php
+    if (!isset($_SESSION['login']) && !isset($_SESSION['mdp'])) {
+        header ('location: login.php');
+    }
     //Connexion à la base de données en pdo
     $pdo = new PDO('mysql:host=lakartxela.iutbayonne.univ-pau.fr;dbname=mlohier001_bd', 'mlohier001_bd', 'mlohier001_bd');
 
-    if (!isset($_SESSION)){
-        session_start();
-    }
     if (!isset($_SESSION['panier'])){
         $_SESSION['panier'] = array();
     }
