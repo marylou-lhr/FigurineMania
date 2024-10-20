@@ -3,6 +3,29 @@
   if(isset($_GET['del'])){
     unset($_SESSION['panier'][$_GET['del']]);
   }
+
+  date_default_timezone_set('Europe/Paris');
+  $date = date_default_timezone_get();
+  $anneeActuelle = date('Y');
+  $moisActuel = date('F');
+  if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['numCard']) && isset($_POST['codeSecret'])
+      && isset($_POST['month']) && isset($_POST['year']) && isset($_POST['adressePaiement'])  && isset($_POST['adresseLivraison'])  && isset($_POST['ville'])  && isset($_POST['zip'])) {
+    if (strlen($_POST['numCard']) == 16 && strlen($_POST['codeSecret']) == 3 && strlen($_POST['zip']) == 5){
+      if ($_POST['year'] > $anneeActuelle || $_POST['year'] == $anneeActuelle && $_POST['month'] >= $moisActuel)
+      {
+        header("Location: paiementOk.php");
+      }
+      else{
+        echo "Paiement échoué : Carte expirée";
+      }
+    }
+    else{
+      echo "Informations invalides.";
+    }
+  }
+  else{
+    echo "Veuillez remplir les champs.";
+  }
 ?>
 
 <html lang="fr">
@@ -45,26 +68,26 @@
           <br>
           <h1>Paiement</h1>
           <br>
-          <form class="row g-3">
+          <form class="row g-3" method="POST">
             <div class="col-md-6">
               <label for="inputNom2" class="form-label">Nom</label>
-              <input type="text" class="form-control" id="inputNom2">
+              <input type="text" class="form-control" id="inputNom2" name="nom" placeholder="ex : Smith" required>
             </div>
             <div class="col-md-6">
               <label for="inputPrenom2" class="form-label">Prénom</label>
-              <input type="text" class="form-control" id="inputPrenom2">
+              <input type="text" class="form-control" id="inputPrenom2" name="prenom" placeholder="ex : John" required>
             </div>
             <div class="col-12">
               <label for="inputEmail" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputEmail">
+              <input type="email" class="form-control" id="inputEmail" name="email" placeholder="ex : johnsmith@gmail.com" required>
             </div>
             <div class="col-4">
               <label for="inputCard" class="form-label">Numéro de carte</label>
-              <input type="text" class="form-control" id="inputCard">
+              <input type="number" class="form-control" id="inputCard" name="numCard" placeholder="ex : 1234 5678 9123" required>
             </div>
             <div class="col-4">
               <label for="inputSecretCode" class="form-label">Code secret</label>
-              <input type="text" class="form-control" id="inputSecretCode">
+              <input type="number" class="form-control" id="inputSecretCode" name="codeSecret" placeholder="ex : 123" required>
             </div>
             <div class="col-4">
               <br>
@@ -91,23 +114,25 @@
                 <option value="2026">2026</option>
                 <option value="2027">2027</option>
                 <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
               </select>
             </div>
             <div class="col-12">
               <label for="inputAddress" class="form-label">Adresse de paiement</label>
-              <input type="text" class="form-control" id="inputAddress">
+              <input type="text" class="form-control" id="inputAddress" name="adressePaiement" placeholder="ex : 1 avenue de Bayonne" required>
             </div>
             <div class="col-12">
               <label for="inputAddress2" class="form-label">Adresse de livraison</label>
-              <input type="text" class="form-control" id="inputAddress2">
+              <input type="text" class="form-control" id="inputAddress2" name="adresseLivraison" placeholder="ex : 2 avenue de Bayonne" required>
             </div>
             <div class="col-md-6">
               <label for="inputCity" class="form-label">Ville</label>
-              <input type="text" class="form-control" id="inputCity">
+              <input type="text" class="form-control" id="inputCity" name="ville" placeholder="ex : Anglet" required>
             </div>
             <div class="col-md-6">
               <label for="inputZip" class="form-label">Code postal</label>
-              <input type="text" class="form-control" id="inputZip">
+              <input type="number" class="form-control" id="inputZip" name="zip" placeholder="ex : 64600" required>
             </div>
             <div class="col-12">
               <button type="submit" class="btn btn-danger">Confirmer</button>
