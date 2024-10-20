@@ -58,7 +58,9 @@
             foreach ($figurines as $figurine) {
           ?>
           <div class="card">
-            <img src="Images/<?= $figurine['urlImage'] ?>" class="card-img-top" alt="Photo de la figurine">
+            <a href="Images/<?= $figurine['urlImage'] ?>">
+            <img src="Images/<?= $figurine['urlImage'] ?>" class="card-img-top img-thumbnail" alt="Photo de la figurine">
+            </a>
             <div class="card-body">
               <h5 class="card-title"><?= $figurine['nom'] ?></h5>
               <p class="card-text"><?= $figurine['nomPerso'] ?> <br> <?= $figurine['license'] ?></p>
