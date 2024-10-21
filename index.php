@@ -48,23 +48,23 @@
           <h3>Description</h3>
           <br>
           <div>
-            <p class="row">FigurineMania est un site web de figurines de personnages d'animes comme Jujutsu Kaisen ou des personnages autres comme Hatsune Miku.</p>
-            <div class="col-md-4">
-              <img src="Images/image3.png" width="100" height="100">
-            </div>
+            <p class="row">FigurineMania est un site web de vente de figurines de personnages d'animes ou des personnages du même style, comme Hatsune Miku.</p>
+            <img src="Images/image3.png">
           </div>
           <br>
           <br>
           <button class="rounded btn btn-danger btn-lg" type="button" onclick="window.location.href = 'figurines.php'">Voir les figurines</button>
           <br><br>
-          
         </div>
         <br>
       </main>
       <footer class="footer mt-auto py-3 bg-light text-center">
         <button class="rounded btn btn-danger" type="button" onclick="window.location.href = 'logout.php'">Se déconnecter</button>
         <div class="p-1">
-          Fait par Marylou Lohier
+          Fait par Marylou Lohier <br>
+          <a href="https://github.com/marylou-lhr/FigurineMania">
+            <img src="Images/github.svg" width="25" height="25">
+          </a>
         </div>
       </footer>
 </body>

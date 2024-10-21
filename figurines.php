@@ -54,27 +54,34 @@
           <br>
           <h1>Figurines</h1>
           <br>
+          <div class="row">
           <?php
             foreach ($figurines as $figurine) {
           ?>
-          <div class="card">
-            <a href="Images/<?= $figurine['urlImage'] ?>">
-            <img src="Images/<?= $figurine['urlImage'] ?>" class="card-img-top img-thumbnail" alt="Photo de la figurine">
-            </a>
-            <div class="card-body">
-              <h5 class="card-title"><?= $figurine['nom'] ?></h5>
-              <p class="card-text"><?= $figurine['nomPerso'] ?> <br> <?= $figurine['license'] ?></p>
-              <p class="card-text"><small class="text-body-secondary"><?= $figurine['prix'] ?> €</small></p>
-              <a href="ajoutDansPanier.php?id=<?=$figurine['id']?>" class="btn btn-danger btn-sm">Mettre dans le panier</a>
+          <div class="col-md-6 mb-4 col-12">
+            <div class="card">
+              <a href="Images/<?= $figurine['urlImage'] ?>">
+              <img src="Images/<?= $figurine['urlImage'] ?>" class="card-img-top img-thumbnail" alt="Photo de la figurine">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title"><?= $figurine['nom'] ?></h5>
+                <p class="card-text"><?= $figurine['nomPerso'] ?> <br> <?= $figurine['license'] ?></p>
+                <p class="card-text"><small class="text-body-secondary"><?= $figurine['prix'] ?> €</small></p>
+                <a href="ajoutDansPanier.php?id=<?=$figurine['id']?>" class="btn btn-danger btn-sm">Mettre dans le panier</a>
+              </div>
             </div>
-            <?php } ?>
+            </div>
+          <?php } ?>
           </div>
         </div>
       </main>
       <footer class="footer mt-auto py-3 bg-light text-center">
         <button class="rounded btn btn-danger" type="button" onclick="window.location.href = 'logout.php'">Se déconnecter</button>
         <div class="p-1">
-          Fait par Marylou Lohier
+          Fait par Marylou Lohier <br>
+          <a href="https://github.com/marylou-lhr/FigurineMania">
+            <img src="Images/github.svg" width="25" height="25">
+          </a>
         </div>
       </footer>
 </body>
