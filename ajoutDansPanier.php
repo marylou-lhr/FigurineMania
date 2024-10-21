@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    
     if (!isset($_SESSION['login']) && !isset($_SESSION['mdp'])) {
         header ('location: login.php');
     }

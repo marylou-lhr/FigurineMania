@@ -1,9 +1,10 @@
 <?php
-    session_start();
+  session_start();
 
-    if(isset($_GET['del'])){
-      unset($_SESSION['panier'][$_GET['del']]);
-    }
+  if(isset($_GET['del'])){
+    unset($_SESSION['panier'][$_GET['del']]);
+  }
+  $prixTotal = 0;
 ?>
 
 <html lang="fr">
@@ -40,67 +41,65 @@
             <img src="Images/panier.png" width="50" height="50" class="d-inline-block align-text-top">
           </a>
         </div>
-      </nav>
-      <main>
-        <div class="container">
-          <br>
-          <h1>Panier</h1>
-          <br>
-          <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <?php
-                //Connexion à la base de données en pdo
-                $pdo = new PDO('mysql:host=lakartxela.iutbayonne.univ-pau.fr;dbname=mlohier001_bd', 'mlohier001_bd', 'mlohier001_bd');
-                $ids = array_filter(array_keys($_SESSION['panier']), 'is_numeric');
-                if (empty($ids)){
-                  print("Votre panier est vide");
-                }
-                else{
-                  $ListeIds = "(" . implode(',', $ids) . ")";
-                  $prixTotal = 0;
+    </nav>
+    <main class="flex-grow-1">
+      <div class="container">
+        <br>
+        <h1>Panier</h1>
+        <br>
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <?php
+              //Connexion à la base de données en pdo
+              $pdo = new PDO('mysql:host=lakartxela.iutbayonne.univ-pau.fr;dbname=mlohier001_bd', 'mlohier001_bd', 'mlohier001_bd');
+              $ids = array_filter(array_keys($_SESSION['panier']), 'is_numeric');
+              if (empty($ids)){
+                print("Votre panier est vide");
+              }
+              else{
+                $ListeIds = "(" . implode(',', $ids) . ")";
 
-                  $sql = "SELECT * FROM Figurine WHERE id IN $ListeIds";
-                  $pdoStatement = $pdo->prepare($sql);
-                  $pdoStatement->execute();
-                  $figurines = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+                $sql = "SELECT * FROM Figurine WHERE id IN $ListeIds";
+                $pdoStatement = $pdo->prepare($sql);
+                $pdoStatement->execute();
+                $figurines = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
                   
-                  echo '<div class="row">';
+                echo '<div class="row g-0">';
 
-                  foreach($figurines as $figurine):
-                    $prixTotal += $figurine['prix'] * $_SESSION['panier'][$figurine['id']];
-                    ?>
-                    <div class="row mb-3">
+                foreach($figurines as $figurine):
+                  $prixTotal += $figurine['prix'] * $_SESSION['panier'][$figurine['id']];
+                  ?>
+                  <div class="card mb-3">
+                    <div class="row g-0">
                       <div class="col-md-4">
-                        <img src="Images/<?=$figurine['urlImage']?>" class="img-fluid rounded-start" alt="...">
+                        <img src="Images/<?=$figurine['urlImage']?>" class="img-fluid rounded" alt="Photo de la figurine">
                       </div>
                       <div class="col-md-8">
                         <div class="card-body">
                           <h5 class="card-title"><?=$figurine['nom']?></h5>
-                          <p class="card-text"><?=$figurine['nomPerso']?> <br> <?=$figurine['license']?></p>
-                          <p class="card-text"><small class="text-body-secondary"><?=$figurine['prix']?> €</small></p>
-                          <p class="card-text"><small class="text-body-secondary">Quantité : <?=$_SESSION['panier'][$figurine['id']]?></p>
+                          <p class="card-text"><small class="text-body-secondary"><?=$figurine['prix']?> € <br> Quantité : <?=$_SESSION['panier'][$figurine['id']]?></p>
                           <a href="panier.php?del=<?=$figurine['id']?>" class="btn btn-danger btn-sm">Retirer du panier</a>
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <?php endforeach; } ?>
               </div>
             </div>
-          <br>
-          <?php endforeach; } ?>
           </div>
           <h5> Total du panier : <?=$prixTotal ?> €</h5>
           <br>
           <a href="paiement.php" class="btn btn-danger btn-lg">Payer</a>
         </div>
-      </main>
-      <footer class="footer mt-auto py-3 bg-light text-center">
-        <button class="rounded btn btn-danger" type="button" onclick="window.location.href = 'logout.php'">Se déconnecter</button>
+    </main>
+    <footer class="footer mt-auto py-3 bg-light text-center">
+      <button class="rounded btn btn-danger" type="button" onclick="window.location.href = 'logout.php'">Se déconnecter</button>
         <div class="p-1">
           Fait par Marylou Lohier <br>
           <a href="https://github.com/marylou-lhr/FigurineMania">
             <img src="Images/github.svg" width="25" height="25">
           </a>
         </div>
-      </footer>
+    </footer>
 </body>
 </html>
