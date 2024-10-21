@@ -1,19 +1,16 @@
 <?php
-  session_start();
-  if(isset($_GET['del'])){
-    unset($_SESSION['panier'][$_GET['del']]);
-  }
+  session_start(); //Reprise de la session
 
-  date_default_timezone_set('Europe/Paris');
-  $date = date_default_timezone_get();
-  $anneeActuelle = date('Y');
-  $moisActuel = date('F');
+  date_default_timezone_set('Europe/Paris'); //Sert à préciser la timezone en France
+  $date = date_default_timezone_get(); //Récupération de la date actuelle
+  $anneeActuelle = date('Y'); //Récupération de l'année actuelle
+  $moisActuel = date('F'); //Récupération du mois actuel en format "Janvier"
   if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['numCard']) && isset($_POST['codeSecret'])
       && isset($_POST['month']) && isset($_POST['year']) && isset($_POST['adressePaiement'])  && isset($_POST['adresseLivraison'])  && isset($_POST['ville'])  && isset($_POST['zip'])) {
     if (strlen($_POST['numCard']) == 16 && strlen($_POST['codeSecret']) == 3 && strlen($_POST['zip']) == 5){
       if ($_POST['year'] > $anneeActuelle || $_POST['year'] == $anneeActuelle && $_POST['month'] >= $moisActuel)
       {
-        header("Location: paiementOk.php");
+        header("Location: paiementOk.php"); //Si tous les champs ont été remplis et que tout a bien été rempli, on redirige vers une page de confirmation
       }
       else{
         echo "Paiement échoué : Carte expirée";
@@ -39,7 +36,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php">
                 <img src="Images/logo.png" width="100" height="100" class="d-inline-block align-text-top">
             </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

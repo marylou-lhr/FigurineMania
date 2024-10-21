@@ -1,8 +1,9 @@
 <?php
-  session_start();
-  if (!isset($_SESSION['login']) && !isset($_SESSION['mdp'])) {
-    header ('location: login.php');
-  };
+  session_start(); //Reprise de la session
+    
+  if (!isset($_SESSION['login']) && !isset($_SESSION['mdp'])) { //Si l'uilisateur n'est pas connecté
+    header ('location: login.php'); //Redirection vers la page de connexion
+  }
 ?>
 
 <html lang="fr">
@@ -16,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php">
                 <img src="Images/logo.png" width="100" height="100" class="d-inline-block align-text-top">
             </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +46,7 @@
             //Connexion à la base de données en pdo
             $pdo = new PDO('mysql:host=lakartxela.iutbayonne.univ-pau.fr;dbname=mlohier001_bd', 'mlohier001_bd', 'mlohier001_bd');
 
-            $sql = "SELECT * FROM Figurine";
+            $sql = "SELECT * FROM Figurine"; //Requête de sélection de toutes les figurines
             $pdoStatement = $pdo->prepare($sql);
             $pdoStatement->execute();
             $figurines = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
@@ -56,18 +57,18 @@
           <br>
           <div class="row">
           <?php
-            foreach ($figurines as $figurine) {
+            foreach ($figurines as $figurine) { //Création d'une "carte" pour chaque figurine
           ?>
           <div class="col-md-6 mb-4 col-12">
             <div class="card">
-              <a href="Images/<?= $figurine['urlImage'] ?>">
-              <img src="Images/<?= $figurine['urlImage'] ?>" class="card-img-top img-thumbnail" alt="Photo de la figurine">
+              <a href="Images/<?= $figurine['urlImage'] ?>"> <!--Récupération de l'image-->
+              <img src="Images/<?= $figurine['urlImage'] ?>" class="card-img-top img-thumbnail" alt="Photo de la figurine"> <!--Récupération de l'image et affichage en vignette-->
               </a>
               <div class="card-body">
-                <h5 class="card-title"><?= $figurine['nom'] ?></h5>
-                <p class="card-text"><?= $figurine['nomPerso'] ?> <br> <?= $figurine['license'] ?></p>
-                <p class="card-text"><small class="text-body-secondary"><?= $figurine['prix'] ?> €</small></p>
-                <a href="ajoutDansPanier.php?id=<?=$figurine['id']?>" class="btn btn-danger btn-sm">Mettre dans le panier</a>
+                <h5 class="card-title"><?= $figurine['nom'] ?></h5> <!--Récupération du nom de la figurine-->
+                <p class="card-text"><?= $figurine['nomPerso'] ?> <br> <?= $figurine['license'] ?></p> <!--Récupération du nom du personnage-->
+                <p class="card-text"><small class="text-body-secondary"><?= $figurine['prix'] ?> €</small></p> <!--Récupération du prix de la figurine-->
+                <a href="ajoutDansPanier.php?id=<?=$figurine['id']?>" class="btn btn-danger btn-sm">Mettre dans le panier</a> <!--Si le bouton est cliqué, la figurine est envoyée vers le panier-->
               </div>
             </div>
             </div>

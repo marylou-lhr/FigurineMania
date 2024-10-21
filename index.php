@@ -1,8 +1,9 @@
 <?php
-  session_start();
-  if (!isset($_SESSION['login']) && !isset($_SESSION['mdp'])) {
-    header ('location: login.php');
-  };
+  session_start(); //Reprise de la session
+    
+  if (!isset($_SESSION['login']) && !isset($_SESSION['mdp'])) { //Si l'uilisateur n'est pas connecté
+    header ('location: login.php'); //Redirection vers la page de connexion
+  }
 ?>
 
 <html lang="fr">
@@ -16,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php">
                 <img src="Images/logo.png" width="100" height="100" class="d-inline-block align-text-top">
             </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +54,7 @@
           </div>
           <br>
           <br>
-          <button class="rounded btn btn-danger btn-lg" type="button" onclick="window.location.href = 'figurines.php'">Voir les figurines</button>
+          <button class="rounded btn btn-danger btn-lg" type="button" onclick="window.location.href = 'figurines.php'">Voir les figurines</button> <!--Redirige vers la page des figurines-->
           <br><br>
         </div>
         <br>

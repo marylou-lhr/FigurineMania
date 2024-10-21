@@ -1,17 +1,18 @@
 <?php
+//Définition d'un login et d'un mot de passe valide
 $loginValide = "admin";
 $mdpValide = "admin";
 
-if (isset($_POST['login']) && isset($_POST['mdp'])) {
-    if ($loginValide == $_POST['login'] && $mdpValide == $_POST['mdp']) {
-        session_start();
-        $_SESSION['login'] = $_POST['login'];
-        $_SESSION['mdp'] = $_POST['mdp'];
-        header('Location: index.php');
+if (isset($_POST['login']) && isset($_POST['mdp'])) { //Si les champs sont remplis
+    if ($loginValide == $_POST['login'] && $mdpValide == $_POST['mdp']) { //Si le login et le mot de passe sont valides
+        session_start(); //La session démarre
+        $_SESSION['login'] = $_POST['login']; //login entré -> login de session
+        $_SESSION['mdp'] = $_POST['mdp']; //mot de passe entré -> mot de passe de session
+        header('Location: index.php'); //Redirection vers la page d'accueil
     }
     else{
         echo "Erreur de permission";
-        echo '<meta http-equiv="refresh" content="0;URL=login.php">';
+        echo '<meta http-equiv="refresh" content="0;URL=login.php">'; //Actualise la page
     }
 }
 else{

@@ -1,10 +1,10 @@
 <?php
-  session_start();
-
-  if(isset($_GET['del'])){
-    unset($_SESSION['panier'][$_GET['del']]);
+  session_start(); //Reprise de la session
+    
+  if (!isset($_SESSION['login']) && !isset($_SESSION['mdp'])) { //Si l'uilisateur n'est pas connecté
+    header ('location: login.php'); //Redirection vers la page de connexion
   }
-  $prixTotal = 0;
+  $prixTotal = 0; //Prix total de base
 ?>
 
 <html lang="fr">
@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php">
                 <img src="Images/logo.png" width="100" height="100" class="d-inline-block align-text-top">
             </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,8 +52,8 @@
             <?php
               //Connexion à la base de données en pdo
               $pdo = new PDO('mysql:host=lakartxela.iutbayonne.univ-pau.fr;dbname=mlohier001_bd', 'mlohier001_bd', 'mlohier001_bd');
-              $ids = array_filter(array_keys($_SESSION['panier']), 'is_numeric');
-              if (empty($ids)){
+              $ids = array_filter(array_keys($_SESSION['panier']), 'is_numeric'); //Liste des identifiants des figurines envoyées dans le panier
+              if (empty($ids)){ //Si la liste est vide
                 print("Votre panier est vide");
               }
               else{
@@ -67,7 +67,7 @@
                 echo '<div class="row g-0">';
 
                 foreach($figurines as $figurine):
-                  $prixTotal += $figurine['prix'] * $_SESSION['panier'][$figurine['id']];
+                  $prixTotal += $figurine['prix'] * $_SESSION['panier'][$figurine['id']]; //Calcul du prix total
                   ?>
                   <div class="card mb-3">
                     <div class="row g-0">
