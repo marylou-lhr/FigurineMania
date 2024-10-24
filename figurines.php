@@ -56,10 +56,12 @@
           <h1>Figurines</h1>
           <br>
           <div class="row">
+          <button class="rounded btn btn-danger" type="button" onclick="window.location.href = 'ajoutFigurine.php'">Nouvelle figurine</button>
           <?php
             foreach ($figurines as $figurine) { //Création d'une "carte" pour chaque figurine
           ?>
           <div class="col-md-6 mb-4 col-12">
+            <br>
             <div class="card">
               <a href="Images/<?= $figurine['urlImage'] ?>"> <!--Récupération de l'image-->
               <img src="Images/<?= $figurine['urlImage'] ?>" class="card-img-top img-thumbnail" alt="Photo de la figurine"> <!--Récupération de l'image et affichage en vignette-->
