@@ -1,5 +1,5 @@
 # FigurineMania
-## Mini-projet PHP centré sur un site web de vente de figurines
+Mini-projet PHP centré sur un site web de vente de figurines
 <br>
 ## A propos de cette version
 Cette version est l'ancienne version du projet (version qui était notée dans le cadre de ma formation) mise en dur (Base de données => JSON) et avant améliorations
