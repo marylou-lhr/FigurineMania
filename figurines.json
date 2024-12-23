@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "nom": "Figurine Luffy",
+        "prix": 39.9,
+        "license": "One Piece",
+        "urlImage": "figurine_luffy.jpg"
+    },
+    {
+        "id": 2,
+        "nom": "Figurine Naruto Uzumaki",
+        "prix": 29.9,
+        "license": "Naruto",
+        "urlImage": "figurine_naruto.jpg"
+    },
+    {
+        "id": 3,
+        "nom": "Figurine Hatsune Miku - Flower Fairy Clover",
+        "prix": 29.9,
+        "license": "Hatsune Miku",
+        "urlImage": "figurine_hatsunemiku.jpg"
+    },
+    {
+        "id": 4,
+        "nom": "Figurine Chainsaw Man",
+        "prix": 29.9,
+        "license": "Chainsaw Man",
+        "urlImage": "figurine_chainsawman.jpg"
+    },
+    {
+        "id": 5,
+        "nom": "Figurine Vegito",
+        "prix": "74.90",
+        "license": "Dragon Ball",
+        "urlImage": "figurine_dragonball.jpg"
+    }
+]

@@ -1,0 +1,53 @@
+Oct 24, 2024
+- Update README.md
+- Ajout de la possibilité d'insérer une figurine dans la base de données, ajout de la page ajoutFigurine.php et d'un bouton qui permet d'y accéder depuis figurine.html
+
+Oct 22, 2024
+- Update README.md
+- Ajout du dossier de bootstrap et des .json qui l'accompagnent
+
+Oct 21, 2024
+- Finition du site, amélioration du nav dans certaines pages, ajout de commentaires, correction de paiementOk.php
+- Panier réparé, footer réparé dans le Panier
+- Ajout du code github dans le footer et modification du footer dans toutes les pages, mise en page de paiement.php, amélioration de figurines.php
+
+Oct 20, 2024
+- figurines.php modifié pour les vignettes
+- Mise en place de la vérification des champs entrés dans la page de paiement et ajout d'une page de confirmation de paiement
+- Ajout d'une restriction de connexion, modification du footer afin que l'utilisateur puisse se déconnecter à tout moment
+
+Oct 17, 2024
+- Correction de la redirection vers index.php (au lieu de index.html) sur toutes les pages
+- Correction des redirections du navbar sur toutes les pages, finition du panier, suppression d'un fichier inutilisé et ajout d'une page qui permet de mettre une figurine dans le panier
+
+Oct 16, 2024
+- Correction du paramètre de la fonction suppr
+- Création de fonctions pour le panier dans un fichier séparé du fichier panier
+- Passage de toutes les pages html en php et ajout d'une fonction php pour enregistrer la session en cours dans toutes les pages. back-end commencé dans panier
+- Remplacement de contact.html par contact.php et back-end de contact fini à priori
+- Suppression de figurines.html et ajout de figurines.php
+
+Oct 15, 2024
+- Ajout de la date de péremption dans paiement.html
+- réglage des images en miniatures
+- paiement.html front-end à peu près fini
+- panier.html front-end à peu près fini et amélioration de figurines.html
+- figurines.html front-end à peu près terminé
+- contact.html front-end terminé
+- Index front-end fini
+
+Oct 14, 2024
+- Avancement de la page d'accueil
+- Ajout de la structure sur toutes les pages
+- Finition de la structure via index.html
+- Header fini dans la page index.html
+
+Oct 9, 2024
+- Ajout d'un lien entre toutes les pages et bootstrap
+- Ajout du squelette pour toutes les pages
+
+Oct 8, 2024
+- Ajout du squelette des pages HTML
+- Ajout du squelette de la page HTML
+- Ajout des fichiers nécessaires pour le projet (sauf BootStrap)
+- Initial commit
